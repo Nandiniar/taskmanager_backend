@@ -18,4 +18,15 @@ public class registered_user {
 
     @Column(name="password")
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="role")
+    private Role role= Role.user;
+
+
+    enum Role{
+        user,admin;
+    }
+
+
 }
