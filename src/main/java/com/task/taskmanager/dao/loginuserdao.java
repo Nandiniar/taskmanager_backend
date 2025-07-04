@@ -1,3 +1,4 @@
+
 package com.task.taskmanager.dao;
 
 import com.task.taskmanager.Entity.login;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Optional;
 
 
-@CrossOrigin("http://localhost:4200")
+
 public interface loginuserdao extends JpaRepository<registered_user,Long> {
     Optional<registered_user> findByEmail(String email);
 }

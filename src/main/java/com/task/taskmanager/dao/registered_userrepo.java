@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Optional;
 
 
-@CrossOrigin("http://localhost:4200")
+
 @Repository
 public interface registered_userrepo extends JpaRepository<registered_user,Long> {
     Optional<registered_user> findByEmail(String email);
