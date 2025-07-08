@@ -27,8 +27,6 @@ public class board_table {
     @Column(name="created_at")
     private LocalDateTime created_at=LocalDateTime.now() ;
 
-    @OneToMany(mappedBy = "board_id",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<column_table>boardcolumn;
 
 
 }

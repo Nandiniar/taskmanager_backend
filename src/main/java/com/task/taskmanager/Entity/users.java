@@ -49,8 +49,6 @@ private List<project>Projects;
 @OneToMany(mappedBy="user_id",cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 private List<comments>comment;
 
-@OneToMany(mappedBy="assigned_to",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-private List<task_table>task;
 
 @OneToMany(mappedBy="user_id",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 private List<project_member>projectmember;

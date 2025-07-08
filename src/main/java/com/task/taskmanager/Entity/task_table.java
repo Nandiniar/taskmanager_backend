@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -21,22 +22,20 @@ public class task_table {
     @Column(name="description")
     private String description;
 
-    @Column(name="column_id",nullable=false)
-    private Long column_id;
+
 
 @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="assigned_to",nullable=false)
-    private users assigned_to;
+    private registered_user assigned_to;
 
     @Enumerated(EnumType.STRING)
     @Column(name="priority",nullable=false)
     private priority Priority=priority.MEDIUM;
 
     @Column(name="due_date")
-    private LocalDateTime due_date=LocalDateTime.now();
+    private Date  due_date;
 
-    @Column(name="task_order",nullable=false)
-    private int task_order;
+
 
     @Column(name="created_at")
     private LocalDateTime created_at=LocalDateTime.now();
@@ -45,8 +44,7 @@ public class task_table {
     @Column(name="updated_at")
 
     private LocalDateTime updated_at=LocalDateTime.now();
-@Column(name="day")
-private String day;
+
 
 @Column(name="notification")
 private String notification;
