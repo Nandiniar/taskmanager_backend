@@ -1,6 +1,7 @@
 package com.task.taskmanager.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,9 +19,11 @@ public class project_member {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
+
     private users user_id;
 @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="project_id")
+
     private  project project_id;
 
     @Column(name="added_at")

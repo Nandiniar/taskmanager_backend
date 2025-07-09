@@ -1,9 +1,10 @@
 package com.task.taskmanager.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.Comments;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -46,11 +47,11 @@ private boolean is_active=true;
 
 private List<project>Projects;
 
-@OneToMany(mappedBy="user_id",cascade = CascadeType.ALL,fetch=FetchType.LAZY)
-private List<comments>comment;
+
 
 
 @OneToMany(mappedBy="user_id",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+
 private List<project_member>projectmember;
 
 

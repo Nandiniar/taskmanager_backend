@@ -1,5 +1,7 @@
 package com.task.taskmanager.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,7 +28,8 @@ public class task_table {
 
 @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="assigned_to",nullable=false)
-    private registered_user assigned_to;
+@JsonBackReference
+    private registered_user assignedto;
 
     @Enumerated(EnumType.STRING)
     @Column(name="priority",nullable=false)
@@ -51,9 +54,6 @@ private String notification;
     @Enumerated(EnumType.STRING)
     @Column(name="label",nullable=false)
     private label Label=label.FEATURE;
-
-@OneToMany(mappedBy="task_id",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-private List<comments>taskcomment;
 
 
   public  enum priority {

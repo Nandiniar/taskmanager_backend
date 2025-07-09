@@ -1,6 +1,7 @@
 package com.task.taskmanager.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class registered_user {
 
     @Column(name="password")
     private String password;
-    @OneToMany(mappedBy="assigned_to",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @OneToMany(mappedBy="assignedto",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+
     private List<task_table> task;
 }

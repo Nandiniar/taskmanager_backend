@@ -1,6 +1,8 @@
 package com.task.taskmanager.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -24,7 +26,7 @@ public class project {
     @Column(name="description",nullable=false,length=255)
     private  String description;
 @ManyToOne(fetch = FetchType.LAZY)
-
+@JsonBackReference
     @JoinColumn (name="created_by",nullable=false)
     private users created_by;
 
@@ -40,6 +42,7 @@ public LocalDateTime start_date=LocalDateTime.now();
     @Column(name="end_date")
     public LocalDateTime end_date=LocalDateTime.now();
     @OneToMany(mappedBy="project_id",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
 private List<project_member>proj;
 
     public enum Status{
